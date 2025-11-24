@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panthu’Da Dhaba</title>
+
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      color: gold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    section {
+      padding: 30px 20px;
+    }
+
+    h2 {
+      color: gold;
+      border-bottom: 2px solid gold;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .item {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
+      border-color: gold;
+    }
+
+    .item img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      background-color: #2a2a2a;
+    }
+
+    .item h3 {
+      margin: 10px 0 5px;
+      color: gold;
+    }
+
+    .item p {
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    button {
+      background-color: gold;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: orange;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      color: gold;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    #greeting, #dateTime, #orderSummary {
+      margin-top: 10px;
+      color: white;
+      font-size: 16px;
+    }
+
+    #suggestBtn {
+      display: block;
+      margin: 20px auto;
+      background-color: gold;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Panthu’Da Dhaba</h1>
+    <div id="greeting"></div>
+    <div id="dateTime"></div>
+    <nav>
+      <a href="#starters">Starters</a>
+      <a href="#main">Main Course</a>
+      <a href="#breads">Breads</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#italian">Italian & French</a>
+      <a href="#chinese">Chinese</a>
+    </nav>
+
+    <div id="orderSummary">
+       Orders: <span id="orderCount">0</span> |  Total: ₹<span id="totalBill">0</span>
+    </div>
+  </header>
+
+  <!-- RANDOM DISH BUTTON -->
+  <button id="suggestBtn" onclick="suggestDish()"> Suggest me something!</button>
+
+  <!-- SECTIONS -->
+  <section id="starters">
+    <h2>Starters</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLHZSRzoB3ZuENFlr1I7dMpCOrsGisbl-ynQ&s" alt="Samosa">
+        <h3>Samosa</h3>
+        <p>₹40</p>
+        <button onclick="orderNow('Samosa', 40)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://orders.popskitchen.in/storage/2024/09/image-358.png" alt="Paneer Tikka">
+        <h3>Paneer Tikka</h3>
+        <p>₹120</p>
+        <button onclick="orderNow('Paneer Tikka', 120)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://images.squarespace-cdn.com/content/v1/5cef7b136434550001a53d10/1592904787982-5YKYYYNYKUC2VY93ZSYQ/cheeseballs2.JPG" alt="Cheese Balls">
+        <h3>Cheese Balls</h3>
+        <p>₹100</p>
+        <button onclick="orderNow('Cheese Balls', 100)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://hot-thai-kitchen.com/wp-content/uploads/2021/03/veggie-spring-rolls-blog.jpg" alt="Veg Spring Roll">
+        <h3>Veg Spring Roll</h3>
+        <p>₹80</p>
+        <button onclick="orderNow('Veg Spring Roll', 80)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="main">
+    <h2>Main Course</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://img-cdn.publive.online/fit-in/1200x675/filters:format(webp)/sanjeev-kapoor/media/media_files/3RSNlFbnXo6eut96CcZz.jpg" alt="Butter Chicken">
+        <h3>Butter Chicken</h3>
+        <p>₹220</p>
+        <button onclick="orderNow('Butter Chicken', 220)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.potsandpans.in/cdn/shop/articles/20221111092337-paneer.jpg?v=1668158933" alt="Paneer Butter Masala">
+        <h3>Paneer Butter Masala</h3>
+        <p>₹180</p>
+        <button onclick="orderNow('Paneer Butter Masala', 180)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.sharmispassions.com/wp-content/uploads/2012/05/dal-makhani7-500x500.jpg" alt="Dal Makhani">
+        <h3>Dal Makhani</h3>
+        <p>₹140</p>
+        <button onclick="orderNow('Dal Makhani', 140)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.whiskaffair.com/wp-content/uploads/2023/02/Shrimp-Masala-2-3.jpg" alt="Prawns Masala">
+        <h3>Prawns Masala</h3>
+        <p>₹160</p>
+        <!-- original code used 'Veg Biryani' in onclick; keeping as provided -->
+        <button onclick="orderNow('Veg Biryani', 160)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="breads">
+    <h2>Breads</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://fullofplants.com/wp-content/uploads/2023/05/Homemade-Naan-Bread-Restaurant-Style-Vegan-thumb-1.jpg" alt="Butter Naan">
+        <h3>Butter Naan</h3>
+        <p>₹40</p>
+        <button onclick="orderNow('Butter Naan', 40)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.cookwithmanali.com/wp-content/uploads/2018/09/Garlic-Naan-500x500.jpg" alt="Garlic Naan">
+        <h3>Garlic Naan</h3>
+        <p>₹50</p>
+        <button onclick="orderNow('Garlic Naan', 50)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://sarahsvegankitchen.com/wp-content/uploads/2024/05/Vegan-Croissants-1.jpg" alt="Croissant">
+        <h3>Croissant</h3>
+        <p>₹95</p>
+        <button onclick="orderNow('Roti', 15)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.whiskaffair.com/wp-content/uploads/2020/06/Lachha-Paratha-2-3-500x500.jpg" alt="Laccha Paratha">
+        <h3>Laccha Paratha</h3>
+        <p>₹70</p>
+        <button onclick="orderNow('Laccha Paratha', 70)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="desserts">
+    <h2>Desserts</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://i0.wp.com/www.chitrasfoodbook.com/wp-content/uploads/2016/10/gulab-jamun-using-mix.jpg?w=1200&ssl=1" alt="Gulab Jamun">
+        <h3>Gulab Jamun</h3>
+        <p>₹50</p>
+        <button onclick="orderNow('Gulab Jamun', 50)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe-500x500.jpg" alt="Rasmalai">
+        <h3>Rasmalai</h3>
+        <p>₹70</p>
+        <button onclick="orderNow('Rasmalai', 70)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTseOTMOPjrpmrEfq-eCo7lw09-vpvMxRHrpg&s" alt="Rosgulla">
+        <h3>Rosgulla</h3>
+        <p>₹40</p>
+        <button onclick="orderNow('Kulfi', 40)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.allrecipes.com/thmb/zb8muWE6CQ5XjclY_LQ2i-QwxN0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/17981-one-bowl-chocolate-cake-iii-DDMFS-beauty-4x3-d2e182087e4b42a3a281a0a355ea60d1.jpg" alt="Chocolate Cake">
+        <h3>Chocolate Cake</h3>
+        <p>₹90</p>
+        <button onclick="orderNow('Chocolate Cake', 90)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="drinks">
+    <h2>Drinks</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://www.thespicehouse.com/cdn/shop/articles/Chai_Masala_Tea_1200x1200.jpg?v=1606936195" alt="Masala Chai">
+        <h3>Masala Chai</h3>
+        <p>₹20</p>
+        <button onclick="orderNow('Masala Chai', 20)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://lentillovingfamily.com/wp-content/uploads/2025/05/mango-lassi-2.jpg" alt="Mango Lassi">
+        <h3>Mango Lassi</h3>
+        <p>₹50</p>
+        <button onclick="orderNow('Lassi', 50)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.cuisinart.com/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-us-cuisinart-sfra-Library/default/dw42dcae51/images/recipe-Images/cafe-latte1-recipe_resized.jpg?sw=1200&sh=630" alt="Latte">
+        <h3>Latte</h3>
+        <p>₹70</p>
+        <button onclick="orderNow('Cold Coffee', 70)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://oliveoilsfromspain.org/wp-content/uploads/2021/03/healthy-lemonade.jpg" alt="Lemonade">
+        <h3>Lemonade</h3>
+        <p>₹40</p>
+        <button onclick="orderNow('Lemonade', 40)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="italian">
+    <h2>Italian & French Cuisine</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/0346a29a89ef229b1a0ff9697184f944/Derivates/cb5051204f4a4525c8b013c16418ae2904e737b7.jpg" alt="Spaghetti Carbonara">
+        <h3>Spaghetti Carbonara</h3>
+        <p>₹250</p>
+        <button onclick="orderNow('Spaghetti Carbonara', 250)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://cookingitalians.com/wp-content/uploads/2024/11/Margherita-Pizza.jpg" alt="Margherita Pizza">
+        <h3>Margherita Pizza</h3>
+        <p>₹220</p>
+        <button onclick="orderNow('Margherita Pizza', 220)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://media.chefdehome.com/740/0/0/ratatouille/ratatouille-casserole.jpg" alt="Ratatouille">
+        <h3>Ratatouille</h3>
+        <p>₹240</p>
+        <button onclick="orderNow('Ratatouille', 240)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://www.simplyrecipes.com/thmb/SY2lL2neXpYOvkxhYvoUcl6pXLQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-French-Onion-Soup-LEAD-2-757941da129647dc90e490ed72b3807c.jpg" alt="French Onion Soup">
+        <h3>French Onion Soup</h3>
+        <p>₹180</p>
+        <button onclick="orderNow('French Onion Soup', 180)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="chinese">
+    <h2>Chinese Cuisine</h2>
+    <div class="menu-items">
+      <div class="item">
+        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/veg-manchurian.jpg" alt="Veg Manchurian">
+        <h3>Veg Manchurian</h3>
+        <p>₹160</p>
+        <button onclick="orderNow('Veg Manchurian', 160)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://kitchenmai.com/wp-content/uploads/2020/05/hakka_noods_blog.jpg" alt="Hakka Noodles">
+        <h3>Hakka Noodles</h3>
+        <p>₹150</p>
+        <button onclick="orderNow('Hakka Noodles', 150)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://iwantimages.s3.amazonaws.com/wp-content/uploads/2020/03/19001455/easy-chilli-chicken-recipe.jpg" alt="Chilli Chicken">
+        <h3>Chilli Chicken</h3>
+        <p>₹190</p>
+        <button onclick="orderNow('Chilli Chicken', 190)">Order Now</button>
+      </div>
+
+      <div class="item">
+        <img src="https://mymorningmocha.com/wp-content/uploads/2023/06/Singapore-fried-rice-recipe-500x500.jpg" alt="Fried Rice">
+        <h3>Fried Rice</h3>
+        <p>₹140</p>
+        <button onclick="orderNow('Fried Rice', 140)">Order Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p> 2025 Panthu’Da Dhaba | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function showGreeting() {
+      const hour = new Date().getHours();
+      let message = "Welcome Foodie!";
+      if (hour < 12) message = "Good Morning, Foodie!";
+      else if (hour < 18) message = "Good Afternoon, Foodie!";
+      else message = "Good Evening, Foodie!";
+      document.getElementById("greeting").textContent = message;
+    }
+
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("dateTime").textContent = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+
+    let orderCount = 0;
+    let totalBill = 0;
+
+    function orderNow(dish, price) {
+      let quantity = prompt(`Enter quantity for ${dish} (1–10):`, 1);
+      quantity = parseInt(quantity, 10);
+      if (isNaN(quantity) || quantity < 1 || quantity > 10) {
+        alert("Invalid quantity! Please enter a number between 1 and 10.");
+        return;
+      }
+
+      const total = price * quantity;
+      orderCount += quantity;
+      totalBill += total;
+
+      document.getElementById("orderCount").textContent = orderCount;
+      document.getElementById("totalBill").textContent = totalBill;
+
+      const time = Math.floor(Math.random() * 15) + 10;
+      alert(
+`You ordered ${quantity} × ${dish}
+Total: ₹${total}
+Preparation time: ${time} minutes
+Your dishes will arrive soon!`
+      );
+    }
+
+    const dishes = ["Samosa", "Butter Chicken", "Rasmalai", "Margherita Pizza", "Hakka Noodles"];
+    function suggestDish() {
+      const random = dishes[Math.floor(Math.random() * dishes.length)];
+      alert(`You should try our special: ${random}!`);
+    }
+
+    showGreeting();
+    updateDateTime();
+  </script>
+
+</body>
+</html>
